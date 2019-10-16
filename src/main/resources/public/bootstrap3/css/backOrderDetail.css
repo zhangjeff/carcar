@@ -1,0 +1,63 @@
+.addressDetail{
+    list-style: none;
+}
+.addressDetail li{
+    float: left;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.title{
+    float: left;
+    padding-left: 15px;
+    padding-right: 2%;
+}
+.getInvoice {
+    width: 25%;
+}
+.invoiceType {
+    width: 25%;
+}
+.invoiceHead {
+    width: 25%;
+}
+.invoiceContent {
+    width: 25%;
+}
+.return_sale {
+    width: 10%;
+}
+.return_sale_ipt {
+    width: 15%;
+}
+.return_sale_txtAre {
+    width: 30%;
+}
+/*
+.return_sale_td {
+    width: 150px;
+}*/
+
+#billDetails .row i{
+    display: inline-block;width: 90px;text-align: right;font-style: normal;
+}
+#goodTable {
+    table-layout: fixed;
+}
+.payAmountTable .bootstrap-table {
+    width: 62%;
+}
+#orderPayTable thead>tr>th:first-child {
+    text-align: center;
+    width: 45%;
+}
+#orderPayTable thead>tr>th:last-child {
+    text-align: right;
+    padding-right: 5%;
+}
+#orderPayTable tbody>tr>td:last-child {
+    text-align: right;
+    padding-right: 5%;
+}
+.modal-body .bootstrap-table .fixed-table-container {
+    border-bottom: none;
+}

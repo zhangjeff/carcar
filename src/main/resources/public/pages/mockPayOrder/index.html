@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>mock数据大全</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../../bootstrap3/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../bootstrap-table/bootstrap-table.css">
+    <link rel="stylesheet" href="../../bootstrap3/css/saleDetail.css"/>
+    <link rel="stylesheet" href="../../css/index.css">
+</head>
+<body>
+<div>
+    <div class="row">
+        <div class="col-md-4" style="border:1px solid #000; margin-left: 125px">
+            <h3 style="text-align: center;color: red">创建订单</h3>
+            <div style="margin-top: 10px">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-3" style="text-align: right"> 操作类型:</div>
+                        <div class="col-md-8">
+                            <select style="width: 185px;height: 26px" name="opType">
+                                <option value="new">订单同步</option>
+                                <option value="update">状态同步</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="form-group">
+                        <div class="col-md-3" style="text-align: right"> 状态:</div>
+                        <div class="col-md-8">
+                            <select style="width: 185px;height: 26px" name="orderstatus" onchange="changeOrderStatus()">
+                                <option value="WAIT_BUYER_PAY">喵零订单创建</option>
+                                <option value="TRADE_NO_CREATE_PAY">同城站订单创建</option>
+                                <option value="WAIT_SELLER_SEND_GOODS">支付成功</option>
+                                <option value="TRADE_CLOSED_BY_TAOBAO">关闭</option>
+                                <option value="TRADE_FINISHED">交易成功</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> 订单号:</div>
+                    <div class="col-md-8"> <input name="tradeNo" /></div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> 订单类型:</div>
+                    <div class="col-md-8">
+                        <select style="width: 185px;height: 26px" name="city_order_type">
+                            <option value="deposit">预约到店</option>
+                            <option value="direct">直接购买</option>
+                            <option value="tail">尾款核销</option>
+                            <option value="">线下喵零不传</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> 手机号码:</div>
+                    <div class="col-md-8"> <input name="receiver_phone" value="13761261498"/></div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> 尾款订单:</div>
+                    <div class="col-md-8"> <input name="related_trade_id"/></div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> 金额:</div>
+                    <div class="col-md-8"> <input name="payment" value="1500"/></div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> 双11订单类型:</div>
+                    <div class="col-md-8">
+                        <select style="width: 185px;height: 26px" name="order_type">
+                            <option value="1111">双11当日订单 单批次</option>
+                            <option value="1111pre">双11预售订单 2批次</option>
+                            <option value="normal">双11期间普通订单 不受限制</option>
+                            <option value="">非预售期间的普通订单</option>
+                        </select>
+                    </div>
+                </div>
+                <hr style="border:1px solid #c0c0c0">
+                <div style="text-align: center; color: #2b81af">商品</div>
+                <div id="goodsModel">
+                    <div class="goodSubModel" style="height: 200px;width:400px;border:1px solid #C9C9C9;">
+                        <div style="margin-left: 40px">
+                            <div class="row" style="margin-top: 5px">
+
+                                <div class="row" style="margin-top: 5px">
+                                    <div class="col-md-3" style="text-align: right"> skuId:</div>
+                                    <div class="col-md-8"> <input name="skuId" value=""/></div>
+                                </div>
+                                <div class="row" style="margin-top: 5px">
+                                    <div class="col-md-3" style="text-align: right"> itemId:</div>
+                                    <div class="col-md-8"> <input name="itemId" value="603335307010"/></div>
+                                </div>
+                                <div class="row" style="margin-top: 5px">
+                                    <div class="col-md-3" style="text-align: right"> subTradeId:</div>
+                                    <div class="col-md-8"> <input name="sub_trade_id" value=""/></div>
+                                    <div class="col-md-1"><div style="cursor: pointer" onclick="addGoods(this)"><img src="../../images/add.svg" width="25px" height="25px"></div></div>
+                                </div>
+                                <div class="row" style="margin-top: 5px">
+                                    <div class="col-md-3" style="text-align: right"> 商品数量:</div>
+                                    <div class="col-md-8"> <input name="num" value="5"/></div>
+                                </div>
+                                <div class="row" style="margin-top: 5px">
+                                    <div class="col-md-3" style="text-align: right"> 商品金额:</div>
+                                    <div class="col-md-8"> <input name="price" value="300"/></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 5px; margin-bottom: 5px">
+                    <div style="text-align: center"><button class="btn btn-primary" id="createOrder">创建</button></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4" style="border:1px solid #000; margin-left: 10px">
+            <h3 style="text-align: center;color: red">支付订单</h3>
+            <div style="margin-top: 10px">
+                <div class="row">
+                    <div class="col-md-3" style="text-align: right"> 订单号:</div>
+                    <div class="col-md-8"> <input name="paymentTradeNo"/></div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> 批次:</div>
+                    <div class="col-md-8"> <input name="pay_num" value="1"/></div>
+                </div>
+                <div id="paymentArea">
+                    <div style="border:1px solid #C9C9C9; height: 100px; width: 380px;margin-left: 15px;margin-top: 5px" >
+                        <div class="row" style="margin-top: 5px">
+                            <div class="col-md-3" style="text-align: right"> 付款方式:</div>
+                            <div class="col-md-7">
+                                <select style="width: 185px;height: 26px" name="pay_way">
+                                    <option value="ALIPAY_FACE_PAY">支付宝</option>
+                                    <option value="BANK_CARD">银行卡</option>
+                                    <option value="CASH">现金</option>
+                                    <option value="TEL_PAY">电汇</option>
+                                    <option value="CHECK">支票</option>
+                                    <option value="STAR_CONSUME_LOANS">星易家居贷</option>
+                                    <option value="HUITONG_CARD">星易通汇卡</option>
+                                    <option value="HUITONG_BLACK_GOLD_CARD">星易通汇黑金卡</option>
+                                    <option value="HUITONG_2019_CARD">通汇卡2019</option>
+                                    <option value="DEBIT_CARD">离线借记卡</option>
+                                    <option value="CREDIT_CARD">离线贷记卡</option>
+                                    <option value="OVERSEAS_DEBIT_CARD">境外借记卡</option>
+                                    <option value="OVERSEAS_CREDIT_CARD">境外贷记卡</option>
+                                    <option value="POST_TONGDA_CARD">邮政通达卡</option>
+                                    <option value="SMART_HUITONG_CARD">智汇通卡</option>
+                                    <option value="DEBIT_CARD_OFFLINE">离线借记卡</option>
+                                    <option value="CREDIT_CARD_OFFLINE">离线贷记卡</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-1 col-md-offset-1">
+                                <div style="margin-left: 10px; cursor: pointer" class="addMorePay"><img src="../../images/add.svg" width="25px" height="25px"></div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 5px">
+                            <div class="col-md-3" style="text-align: right"> 金额:</div>
+                            <div class="col-md-8"> <input name="paymentAmount"/></div>
+                        </div>
+                        <div class="row" style="margin-top: 5px">
+                            <div class="col-md-3" style="text-align: right"> 支付时间:</div>
+                            <div class="col-md-8"> <input name="paymentDate"/></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-top: 10px">
+                    <div style="text-align: center;margin-bottom: 10px"><button class="btn btn-primary" id="orderPayment">支付</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2" style="margin-left: 10px; height: 187px">
+            <video class="video" poster="" width="314"
+                   height="187"  autoplay="autoplay" loop="loop">
+                <source src="../../images/dubbo11.mp4" media="only screen and (min-device-width: 568px)"></source>
+            </video>
+        </div>
+        <div class="col-md-4" style="border:1px solid #000; margin-left: 10px">
+            <h3 style="text-align: center;color: red">退款操作</h3>
+            <div style="margin-top: 10px">
+                <div class="row">
+                    <div class="col-md-3" style="text-align: right"> 订单号:</div>
+                    <div class="col-md-8"> <input name="refundQueryOriginOrderNo"/></div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+
+                    <div class="col-md-3" style="text-align: right"> 退单号:</div>
+                    <div class="col-md-8"> <input name="refundQueryOrder" value=""/></div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> 操作类型:</div>
+                    <div class="col-md-8">
+                        <select style="width: 185px;height: 26px" name="refundOpType">
+                            <option value="query">退款查询</option>
+                            <option value="submit">退款提交</option>
+                            <option value="retry">退款重试</option>
+                            <option value="refunded">退款单同步</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="refundQueryArea">
+                    <div style="border:1px solid #C9C9C9; height: 100px; width: 380px;margin-left: 15px;margin-top: 5px" >
+                        <div class="row" style="margin-top: 5px">
+                            <div class="col-md-3" style="text-align: right"> 付款方式:</div>
+                            <div class="col-md-7">
+                                <select style="width: 185px;height: 26px" name="refundQueryPayway">
+                                    <option value="ALIPAY_FACE_PAY">支付宝</option>
+                                    <option value="BANK_CARD">银行卡</option>
+                                    <option value="CASH">现金</option>
+                                    <option value="TEL_PAY">电汇</option>
+                                    <option value="CHECK">支票</option>
+                                    <option value="STAR_CONSUME_LOANS">星易家居贷</option>
+                                    <option value="HUITONG_CARD">星易通汇卡</option>
+                                    <option value="HUITONG_BLACK_GOLD_CARD">星易通汇黑金卡</option>
+                                    <option value="HUITONG_2019_CARD">通汇卡2019</option>
+                                    <option value="DEBIT_CARD">离线借记卡</option>
+                                    <option value="CREDIT_CARD">离线贷记卡</option>
+                                    <option value="OVERSEAS_DEBIT_CARD">境外借记卡</option>
+                                    <option value="OVERSEAS_CREDIT_CARD">境外贷记卡</option>
+                                    <option value="POST_TONGDA_CARD">邮政通达卡</option>
+                                    <option value="SMART_HUITONG_CARD">智汇通卡</option>
+                                    <option value="DEBIT_CARD_OFFLINE">离线借记卡</option>
+                                    <option value="CREDIT_CARD_OFFLINE">离线贷记卡</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-1 col-md-offset-1">
+                                <div style="margin-left: 10px; cursor: pointer" onclick="refundQueryAddPayWay()"><img src="../../images/add.svg" width="25px" height="25px"></div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 5px">
+                            <div class="col-md-3" style="text-align: right"> 金额:</div>
+                            <div class="col-md-8"> <input name="refundQueryAmout"/></div>
+                        </div>
+                        <div class="row" style="margin-top: 5px">
+                            <div class="col-md-3" style="text-align: right"> 时间:</div>
+                            <div class="col-md-8"> <input name="refundDate"/></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-top: 10px">
+                    <div style="text-align: center;margin-bottom: 10px"><button class="btn btn-primary" id="refundQuerySubmit">提交</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2" style="margin-left: 10px; height: 187px">
+            <video class="video" poster="http://media.html5media.info/poster.jpg" width="314"
+                   height="187"  autoplay="autoplay" loop="loop">
+                <source src="http://media.html5media.info/video.mp4" media="only screen and (min-device-width: 568px)"></source>
+            </video>
+        </div>
+        <div class="col-md-2" style="margin-left: 10px; height: 187px">
+            <video class="video" poster="" width="314"
+                   height="187"   autoplay="autoplay" loop="loop">
+                <source src="../../images/dubbo11.mp4" media="only screen and (min-device-width: 568px)"></source>
+            </video>
+        </div>
+    </div>
+</div>
+
+<div id="addMorePayTemp" style="display: none">
+    <div style="border:1px solid #C9C9C9; height: 100px; width: 380px;margin-left: 15px;margin-top: 5px" >
+        <div class="row" style="margin-top: 5px">
+            <div class="col-md-3" style="text-align: right"> 付款方式:</div>
+            <div class="col-md-7">
+                <select style="width: 185px;height: 26px" name="pay_way">
+                    <option value="ALIPAY_FACE_PAY">支付宝</option>
+                    <option value="BANK_CARD">银行卡</option>
+                    <option value="CASH">现金</option>
+                    <option value="TEL_PAY">电汇</option>
+                    <option value="CHECK">支票</option>
+                    <option value="STAR_CONSUME_LOANS">星易家居贷</option>
+                    <option value="HUITONG_CARD">星易通汇卡</option>
+                    <option value="HUITONG_BLACK_GOLD_CARD">星易通汇黑金卡</option>
+                    <option value="HUITONG_2019_CARD">通汇卡2019</option>
+                    <option value="DEBIT_CARD">离线借记卡</option>
+                    <option value="CREDIT_CARD">离线贷记卡</option>
+                    <option value="OVERSEAS_DEBIT_CARD">境外借记卡</option>
+                    <option value="OVERSEAS_CREDIT_CARD">境外贷记卡</option>
+                    <option value="POST_TONGDA_CARD">邮政通达卡</option>
+                    <option value="SMART_HUITONG_CARD">智汇通卡</option>
+                    <option value="DEBIT_CARD_OFFLINE">离线借记卡</option>
+                    <option value="CREDIT_CARD_OFFLINE">离线贷记卡</option>
+                </select>
+            </div>
+
+            <div class="col-md-1 col-md-offset-1">
+                <div style="margin-left: 10px; cursor: pointer" onclick="subPayment(this)"><img src="../../images/sub.svg" width="25px" height="25px"></div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 5px">
+            <div class="col-md-3" style="text-align: right"> 金额:</div>
+            <div class="col-md-8"> <input name="paymentAmount"/></div>
+        </div>
+        <div class="row" style="margin-top: 5px">
+            <div class="col-md-3" style="text-align: right"> 支付时间:</div>
+            <div class="col-md-8"> <input name="paymentDate"/></div>
+        </div>
+    </div>
+</div>
+
+
+<div id="goodsModelTemp" style="display: none">
+    <div  class="goodSubModel" style="height: 200px;width:400px;border:1px solid #C9C9C9;margin-top: 5px">
+        <div style="margin-left: 40px">
+            <div class="row" style="margin-top: 5px">
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> skuId:</div>
+                    <div class="col-md-8"> <input name="skuId" value=""/></div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> itemId:</div>
+                    <div class="col-md-8"> <input name="itemId" value="603335307010"/></div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> subTradeId:</div>
+                    <div class="col-md-8"> <input name="sub_trade_id" value=""/></div>
+                    <div class="col-md-1"> <div style="cursor: pointer" onclick="subGoods(this)"><img src="../../images/sub.svg" width="25px" height="25px"></div></div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> 商品数量:</div>
+                    <div class="col-md-8"> <input name="num" value="5"/></div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                    <div class="col-md-3" style="text-align: right"> 商品金额:</div>
+                    <div class="col-md-8"> <input name="price" value="300"/></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="refundQueryTemp" style="display: none">
+    <div style="border:1px solid #C9C9C9; height: 100px; width: 380px;margin-left: 15px;margin-top: 5px" >
+        <div class="row" style="margin-top: 5px">
+            <div class="col-md-3" style="text-align: right"> 付款方式:</div>
+            <div class="col-md-7">
+                <select style="width: 185px;height: 26px" name="refundQueryPayway">
+                    <option value="ALIPAY_FACE_PAY">支付宝</option>
+                    <option value="BANK_CARD">银行卡</option>
+                    <option value="CASH">现金</option>
+                    <option value="TEL_PAY">电汇</option>
+                    <option value="CHECK">支票</option>
+                    <option value="STAR_CONSUME_LOANS">星易家居贷</option>
+                    <option value="HUITONG_CARD">星易通汇卡</option>
+                    <option value="HUITONG_BLACK_GOLD_CARD">星易通汇黑金卡</option>
+                    <option value="HUITONG_2019_CARD">通汇卡2019</option>
+                    <option value="DEBIT_CARD">离线借记卡</option>
+                    <option value="CREDIT_CARD">离线贷记卡</option>
+                    <option value="OVERSEAS_DEBIT_CARD">境外借记卡</option>
+                    <option value="OVERSEAS_CREDIT_CARD">境外贷记卡</option>
+                    <option value="POST_TONGDA_CARD">邮政通达卡</option>
+                    <option value="SMART_HUITONG_CARD">智汇通卡</option>
+                    <option value="DEBIT_CARD_OFFLINE">离线借记卡</option>
+                    <option value="CREDIT_CARD_OFFLINE">离线贷记卡</option>
+                </select>
+            </div>
+
+            <div class="col-md-1 col-md-offset-1">
+                <div style="margin-left: 10px; cursor: pointer" onclick="refundQuerySubPayWay(this)"><img src="../../images/sub.svg" width="25px" height="25px"></div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 5px">
+            <div class="col-md-3" style="text-align: right"> 金额:</div>
+            <div class="col-md-8"> <input name="refundQueryAmout"/></div>
+        </div>
+        <div class="row" style="margin-top: 5px">
+            <div class="col-md-3" style="text-align: right"> 时间:</div>
+            <div class="col-md-8"> <input name="refundDate"/></div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="../../jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../bootstrap3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../jquery/common.js"></script>
+<script src="../../bootstrap-table/bootstrap-table.js"></script>
+<script type="text/javascript" src="../../lib/template.js"></script>
+
+<script src="../../bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<script type="text/javascript" src="../../lib/jQueryValidate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../lib/jQueryValidate/additional-methods.min.js"></script>
+<script type="text/javascript" src="../../lib/jQueryValidate/messages_zh.js"></script>
+<script type="text/javascript" src="../../jquery/mockPayOrder/mockPayOrder.js"></script>
+</html>
+

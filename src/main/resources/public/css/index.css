@@ -1,0 +1,434 @@
+body, table {
+    font-size: 12px;
+}
+body {
+    margin: 0;
+    background: #fff;
+    color: #555;
+    font-size: 14px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+.page-block{position: relative;margin-top: 20px; margin-bottom: 20px; padding: 5px 15px; width: 100%; background: RGB(245,245,246); border-radius: 2px; -webkit-animation: mysearch 1s forwards; animation: mysearch 1s forwards;}
+.page-block .row{margin: 0px;padding: 0px}
+.page-block label{font-weight: normal;}
+.page-block .btn{margin-right: 10px; min-width:80px; font-size: 14px;}
+.page-block .form-inline .form-group{margin-top: 5px; margin-right: 20px; margin-bottom: 5px;}
+.page-block .form-inline .form-control{margin-left: 10px;padding-top: 2px;padding-bottom: 2px}
+/*.page-block .form-inline input.form-control{width: 170px;}*/
+.page-block .black-block{background-color: #000;width: 7px;height: 12px;position: absolute;left: 0px;margin-top: 4px}
+.page-block .btn-icon{padding: 0px 3px;min-width:50px}
+/*.page-block label.title{
+    border-left: 7px solid #000;
+}*/
+/*普通提示*/
+.tip_dialog{padding-top:100px;width:270px;}
+.tip_dialog .tip_content{padding-bottom:20px;width:100%;}
+.tip_dialog .tips_title_text{margin-top:-55px;color:#333;font-family:MicrosoftYaHei;}
+.tip_dialog .tips_content_text{margin-bottom:35px;color:#333;font-weight:900;font-family:MicrosoftYaHei;}
+.tip_dialog .common_count{margin-top:25px;margin-right:auto;margin-left:12px;width:38px;height:38px;border-radius:34px;}
+.tip_dialog .danger_count{background:url(../images/warning-new1.png) no-repeat 0 0;background-size:100% 100%;}
+.tip_dialog .warning_count{background:url(../images/warning-new1.png) no-repeat 0 0;background-size:100% 100%;}
+.tip_dialog .success_count{background:#77c25e url(../images/success.png) no-repeat center left;background-size:100% 100%;}
+.tip_dialog .closeBtn{position:relative;top:-40px;right:-225px;width:14px;height:14px;background:url(../images/close.png) no-repeat -7px;cursor:pointer;}
+.tip_dialog .pop_content{padding-left:78px;width:240px;text-align:left;}
+.tip_dialog .successTitle{font-weight:700;}
+
+
+/** 弹出输入框 **/
+.popup-default{text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
+.popup-default .popup-title{margin: 0; height: 45px; line-height: 45px; font-size: 18px; font-weight: bold; background-color: #f8f9fa;}
+.popup-default form{margin-top: 20px; margin-bottom: 20px;}
+.popup-default textarea{resize: none;}
+.popup-default .control-label{font-weight: normal;}
+.popup-default .btn{width: 100%;}
+.popup-auth{position: absolute; width: 400px; height: 220px; margin-top: -110px; top: 50%; left: 50%; margin-left: -160px;}
+.popup-auth .btn-block{position: absolute; bottom: 20px; margin-right: 0; margin-left: 0;}
+.lockbg{position: absolute;width:100%;height:100%;background: #fff;left: 0;top: 0; filter: Alpha(opacity=0.2); -moz-opacity:0.2; opacity:0.2;display: none;z-index:98}
+.cic-pop{width: 320px;  height: 220px; margin-top: -110px; position: absolute;background: #fff;display: none}
+.popcenter { position: fixed; z-index: 9999; top: 50%;  left: 50%; -ms-transform: translate(-50%,-50%);  -moz-transform: translate(-50%,-50%);  -o-transform: translate(-50%,-50%);  transform: translate(-50%,-50%);  }
+.popcenter1 { position: fixed;top: 35%;  left: 50%;z-index:99;  }
+#cmg-upload{cursor: pointer}
+.popup-upload{position: relative; width: 300px; height: 200px; }
+.loadings {  height: 50px;  width: 50px;  background: url("../images/loading.png") no-repeat 0 0;  -webkit-animation: bounce 1.0s infinite linear;  animation: bounce 1.0s infinite linear;  }
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+.mb10{
+    margin-bottom:10px;
+}
+.disilb {
+    display: inline-block;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+.btn-form {
+    margin: 10px;
+    padding: 4px 12px;
+    min-width: 80px;
+}
+
+
+/*loading样式*/
+
+#loading {
+    z-index: 100;
+    position: fixed;
+    background: #000;
+    opacity: .4;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#loading .img {
+    width: 80px;
+    height: 80px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+}
+
+#loading .img img {
+    display: block;
+    width: 100%;
+}
+
+.container .form-inline .form-group{
+    margin-top: 5px;
+    width: 20%;
+}
+.container .form-inline {
+    font-size: 12px;
+    padding: 5px 15px;
+    width: 100%;
+    background: RGB(245,245,246);
+    border-radius: 2px;
+    animation: mysearch 1s forwards;
+}
+.create.emodal .modal-body{
+    text-align: center;
+    color:#259ad9;
+}
+.create.emodal .modal-body .money span{
+    color: #ff6600;
+}
+
+.create.emodal .modal-body .title{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.emodal .modal-dialog{
+    padding-top: 10%;
+}
+.emodal em{
+    font-style: normal;
+    margin-left: 4px;
+}
+.emodal .modal-footer{
+    border-top: none;
+    text-align: center;
+}
+.emodal .modal-header{
+    border-bottom: none;
+    font-weight: bold;
+}
+.emodal .total{
+    text-align: right;
+    border-top: 1px dotted #000;
+    font-size: 20px;
+    padding: 15px 20px;
+}
+.emodal .total span{
+    color: #ff6600;
+}
+.amountDetail{
+    position: relative;
+    text-align: right;
+}
+.amountDetail i{
+    font-style: normal;
+}
+.amountDetail em{
+    font-style: normal;
+    text-align: right;
+    margin-right: 5%;
+    display: inline-block;
+}
+.amountDetail span.amount{
+    min-width: 100px;
+    display: inline-block;
+    text-align: left;
+}
+.amountDetail p{
+    margin-bottom: 5px;
+}
+.amountDetail .productCount{
+    float: left;
+}
+.leftBlock,.rightBlock{
+    width: 50%;
+}
+.leftBlock {
+    padding-right: .5%;
+}
+.rightBlock {
+    padding-left: .5%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.leftBlock .inner,.rightBlock .inner{
+    position: relative;
+    padding: 10px 10px 5px;
+    background-color: rgba(250, 250, 250, 1);
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(214, 230, 243, 1);
+    border-radius: 0px;
+}
+.rightBlock .inner .wrapper{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: left;
+}
+.consumerCost .costDetails {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+.consumerCost .costRow {
+    margin: 15px 0px;
+}
+.consumerCost .costDetails .form-control {
+    width: 50%;
+    display: inline-block;
+}
+.form-control.costSelect {
+    display: inline-block;
+    width: 70%;
+}
+.container #refundReasonDetail {
+    resize: none;
+    display: inline-block;
+    width: 86%;
+    vertical-align: text-top;
+}
+#refundReasonDetail {
+    resize: none;
+    display: inline-block;
+    width: 86%;
+    vertical-align: text-top;
+}
+#selectMarket #marketSearchBar4sale .btn-group.bootstrap-select {
+    width: 200px;
+}
+#selectShop #shopSearchBar4sale .btn-group.bootstrap-select {
+    width: 200px;
+}
+#numberShow .modal-header{
+    border-bottom: none;
+}
+#numberShow .top{
+    font-size: 28px;
+}
+#numberShow .top i{
+    font-size: 40px;
+    color: #0066FF;
+    font-family: 'Arial Normal', 'Arial';
+    font-weight: 400;
+    font-style: normal;
+}
+#numberShow .tip{
+    font-size: 13px;
+    color: #999999;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+#numberShow .modal-body {
+    position: relative;
+    padding: 30px 25px;
+}
+.orderMobile{
+    display: inline-block;
+    margin-left: 3px;
+}
+
+
+/*样式重构*/
+.pTradeList {
+    padding: 0px;
+}
+
+.pTradeList .form-control {
+    box-shadow: none;
+}
+.pTradeList .dateRange{
+    width: 200px;
+}
+.pTradeList .marginTop {
+    margin-top: 12px;
+}
+
+.pTradeList div[data-link-field=dtp_input1] {
+    width: 100px;
+}
+.pTradeList .fixed-table-container {
+    border: none;
+    border-top: 1px solid #e8e8e8;
+}
+.pTradeList span.like {
+    margin-left: 5px;
+    color: #1890FF;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    font-family: 'Microsoft YaHei';
+    cursor: pointer;
+}
+
+
+.pTradeList table.dataTable tbody tr td,.pTradeList table.dataTable thead .th-inner {
+    padding: 15px 8px;
+}
+
+.pTradeList table.dataTable thead {
+    height: 54px;
+    border-right: 1px solid #e8e8e8;
+    border-left: 1px solid #e8e8e8;
+    background: #FAFAFA;
+    color: rgba(0,0,0,.847058823529412);
+    text-align: right;
+    font-size: 14px;
+    line-height: 53px;
+}
+
+.pTradeList table.dataTable tbody {
+    color: rgba(0,0,0,.647058823529412);
+    text-align: left;
+    font-size: 14px;
+    line-height: 53px;
+}
+
+.pTradeList .btn-default:hover,.pTradeList .btn-default:focus,.pTradeList  .btn-default.focus, .pTradeList .btn-default:active, .pTradeList  .btn-default.active, .pTradeList  .open>.dropdown-toggle.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #adadad;
+}
+
+.pTradeList .orderStatusList button.active {
+    border-color: #1890FF;
+    box-shadow: none;
+}
+
+.pTradeList .orderStatus:before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: #000;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.pTradeList .orderStatus.st_1:before {
+    background: #BFBFBF;
+}
+
+.pTradeList .orderStatus.st_2:before {
+    background: #FFBF00;
+}
+
+.pTradeList .orderStatus.st_3:before {
+    background: #00A854;
+}
+
+.pTradeList .orderStatus.st_4:before {
+    background: #F04134;
+}
+
+.pTradeList .content-search {
+    font-family: "Arial Normal", Arial;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    color: rgb(51, 51, 51);
+    line-height: normal;
+    margin-bottom: 20px;
+}
+
+.pTradeList .content-search label {
+    width: 60px;
+    font-weight: normal;
+}
+
+.pTradeList #u2976_img {
+    border-width: 0px;
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    width: 14px;
+    height: 14px;
+}
+
+.pTradeList .infoBox{
+    padding: 15px 0;
+    border-top:1px solid #ddd;
+}
+.pTradeList .infoBox .infoTitle{
+    font-family: 'Microsoft Tai Le Bold', 'Microsoft Tai Le';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.847058823529412);
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+.pTradeList .infoBox .row{
+    margin-bottom: 12px;
+}
+
+/*
+.pTradeList #billDetails .row{
+    margin-bottom: 0;
+}*/
+
+.pTradeList #refundReasonDet:disabled{
+    background: #eee;
+}
+.queryBackOrderPayTable .bootstrap-table {
+    width: 42%;
+}
+.backOrderDetailTable .bootstrap-table {
+    width: 43%;
+}

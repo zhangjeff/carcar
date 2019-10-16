@@ -1,0 +1,55 @@
+body, table {
+    font-size: 12px;
+}
+table{width:185mm;height:159mm;border-collapse:collapse;cellspacing:0;cellpadding:0;}
+#printTable table td{border:none;}
+table td{overflow:hidden;border:1px solid #000;text-align:center;text-overflow:ellipsis;white-space:nowrap;word-break:keep-all;}
+table tr:nth-child(1){height:9.5mm;}
+table tr:nth-child(2){height:9mm;}
+table tr:nth-child(3){height:8.5mm;}
+table tr:nth-child(4){height:9.5mm;}
+table tr:nth-child(5){height:9mm;}
+table tr:nth-child(6){height:7mm;}
+table tr:nth-child(7){height:7mm;}
+table tr:nth-child(8){height:7mm;}
+table tr:nth-child(9){height:7mm;}
+table tr:nth-child(10){height:7mm;}
+table tr:nth-child(11){height:7mm;}
+table tr:nth-child(12){height:7mm;}
+table tr:nth-child(13){height:7mm;}
+table tr:nth-child(14){height:7mm;}
+table tr:nth-child(15){height:7mm;}
+table tr:nth-child(16){height:7mm;}
+table tr:nth-child(17){height:6mm;}
+table tr:nth-child(18){height:6mm;}
+table tr:nth-child(19){height:7mm;}
+table tr:nth-child(20){height:7mm;}
+table tr:nth-child(21){height:20mm;}
+table tr:nth-child(22){height:10mm;}
+table tr:nth-child(23){height:40mm;}
+table tr:nth-child(24){height:10mm;}
+table tr td:nth-child(1){width:19mm;}
+table tr td:nth-child(2){width:19mm;}
+table tr td:nth-child(3){width:24mm;}
+table tr td:nth-child(4){width:14mm;}
+table tr td:nth-child(5){width:21mm;}
+table tr td:nth-child(6){width:18mm;}
+table tr td:nth-child(7){width:5mm;}
+table tr td:nth-child(8){width:10mm;}
+table tr td:nth-child(9){width:22mm;}
+table tr td:nth-child(10){width:33mm;}
+/*#finalPayRemark{position:absolute;top:1mm;left:40mm;}
+#otherPrintAmount{position:absolute;left:125mm;}*/
+table td{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-break:keep-all;}
+/*table td.noWhiteSpace{text-overflow:clip;white-space:normal;word-break:normal;}*/
+.numberInput{width:50px;height:20px;}
+#remark{
+    word-wrap: break-word;
+    word-break: break-all;
+}
+#finalPayRemark,#otherPrintAmount{
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #ddd;
+}

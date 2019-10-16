@@ -1,0 +1,87 @@
+
+
+.selfDefinePerspective {
+  -webkit-perspective: 800px;
+  -webkit-perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+
+#login-panel {
+  -webkit-transform: rotateX(22deg) ;
+}
+
+#login-panel h1{
+  text-transform: uppercase;
+  text-shadow: 3px 3px 2px grey;
+}
+
+#login-panel label span{
+  text-shadow: 2px 2px 1px grey;
+}
+
+
+
+
+@-webkit-keyframes  shineChangeColor {
+  0% { -webkit-box-shadow: 0 0 15px purple; }
+  25% { -webkit-box-shadow: 0 0 30px orange; }
+  50% { -webkit-box-shadow: 0 0 15px blue; }
+  75% { -webkit-box-shadow: 0 0 30px purple }
+  100%{ -webkit-box-shadow: 0 0 15px blue; }
+}
+.shineChangeColor{
+  -webkit-animation-name: shineChangeColor;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+
+
+
+@keyframes scroll_X_Images {
+  0%{
+    transform: translateX(0px);
+  }
+  20%{
+    transform: translateX(-204px);
+  }
+  40%{
+    transform: translateX(-408px);
+  }
+  60%{
+    transform: translateX(-612px);
+  }
+  80%{
+    transform: translateX(-816px);
+  }
+  100%{
+    transform: translateX(-1020px);
+  }
+}
+.selfDefineCarousel{
+  position: absolute;
+  top: 80px;
+  left: 40%;
+  width: 200px;
+  height: 60px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.innerContainerOfCarousel{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1400px;
+  -webkit-animation:scroll_X_Images 6s infinite  cubic-bezier(1,0,0.5,0) ;
+  animation:scroll_X_Images 6s infinite  cubic-bezier(1,0,0.5,0) ;
+}
+.innerContainerOfCarousel div{
+  height: 60px;
+  width: 200px;
+  overflow: hidden;
+  display: inline-block;
+}
+.innerContainerOfCarousel:hover{
+  animation-play-state:paused;
+  -webkit-animation-play-state:paused;
+}

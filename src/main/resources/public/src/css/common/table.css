@@ -1,0 +1,15 @@
+table tr,
+table th,
+table td{
+  text-align: center;
+}
+
+
+.tScroll{
+  overflow: scroll;
+  overflow-y: hidden;
+  height: 100%;
+  width: 100%;
+  cursor: default;
+  /*border:none;*/
+}

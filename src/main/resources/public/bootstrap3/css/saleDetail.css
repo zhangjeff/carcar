@@ -1,0 +1,57 @@
+.special{
+  width: 100%;
+  height: 1px;
+  border: 1px solid #BCE8F1;
+}
+
+.include {
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #BCE8F1;
+    padding: 8px;
+    line-height: 1.42857143;
+    font-size: 12px;
+}
+
+.top_heading{
+  background: #D0E9F5!important;
+}
+
+.title{
+  float: left;
+  padding-left: 15px;
+  padding-right: 2%;
+}
+
+.addressDetail{
+  list-style: none;
+}
+.addressDetail li{
+  float: left;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.order_num{
+width:33.33%;
+}
+
+
+.back_money{
+width:33.33%;
+}
+
+.memos{
+width:33.33%;
+text-align:center;
+}
+
+.tdcss{
+   width:100%;
+   height:100px;
+   overflow:hidden;
+   overflow-y:auto;
+}
+
+
+
