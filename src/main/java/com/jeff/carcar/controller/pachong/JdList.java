@@ -17,17 +17,32 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class JdList {
 
     public static void main(String[] args) {
-        for (int i = 1; i< 6; i++) {
-            String url = "https://book.jd.com/booktop/0-0-0.html?category=1713-0-0-0-10002-"+i+"#comfort";
-            produceData(url);
-        }
-//        produceData("https://book.jd.com/booktop/0-0-0.html?category=1713-0-0-0-10002-2#comfort");
+        productJDBookInfo();
     }
 
+    public static void productJDBookInfo() {
+        TimerTask timertask = new TimerTask() {
+            @Override
+            public void run() {
+                for (int i = 1; i< 6; i++) {
+                    String url = "https://book.jd.com/booktop/0-0-0.html?category=1713-0-0-0-10002-"+i+"#comfort";
+                    produceData(url);
+                }
+            }
+        };
+
+        Timer timer = new Timer();
+        long delay = 0;
+        long iintevalPeriod = 1*1000*60*1000;
+        timer.scheduleAtFixedRate(timertask,delay,iintevalPeriod);
+//        produceData("https://book.jd.com/booktop/0-0-0.html?category=1713-0-0-0-10002-2#comfort");
+    }
     private static void produceData(String url){
         try {
             Document doc = Jsoup.connect(url).get();
