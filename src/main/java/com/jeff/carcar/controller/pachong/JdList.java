@@ -39,7 +39,7 @@ public class JdList {
 
         Timer timer = new Timer();
         long delay = 0;
-        long iintevalPeriod = 1*1000*60;
+        long iintevalPeriod = 1*1000*60*60*24;
         timer.scheduleAtFixedRate(timertask,delay,iintevalPeriod);
 //        produceData("https://book.jd.com/booktop/0-0-0.html?category=1713-0-0-0-10002-2#comfort");
     }
