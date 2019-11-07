@@ -1,0 +1,77 @@
+spring:
+  application:
+    name: carcar
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+  profiles:
+    active: dev
+
+  jackson:
+    date-format: YYYY-MM-DD
+    joda-date-time-format: YYYY-MM-DD HH:mm:ss
+
+mybatis:
+  mapper-locations: classpath:sqlmapper/*.xml
+  type-aliases-package: com.jeff.boot.entity
+  check-config-location: true
+  config-location: classpath:mybatis.xml
+
+logging:
+  config: classpath:logback.xml
+
+server:
+  port: 8082
+  session:
+    timeout: 1800
+  connection-timeout:  60000
+  display-name: Boot Application
+
+---
+spring:
+   profiles: dev
+   datasource:
+     driver-class-name: com.mysql.jdbc.Driver
+     username: wwy
+     url: jdbc:mysql://45.117.101.64:3306/db_draw?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&createDatabaseIfNotExist=true
+     password: wwy123
+     type:  com.alibaba.druid.pool.DruidDataSource
+     druid:
+       filters: config
+       maxActive: 50
+       initialSize: 10
+       maxWait: 60000
+       minIdle: 1
+       timeBetweenEvictionRunsMillis: 60000
+       minEvictableIdleTimeMillis: 300000
+       validationQuery: select 'x'
+       testWhileIdle: true
+       testOnBorrow: false
+       testOnReturn: false
+       connectionProperties: config.decrypt=false;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMBqy+oGF0DhV2jiHyilb4mowR4mgQL4FSE0+GvlstTqYanSnJXYHmAffYVNO7lsAq4KU0K3Xh9e6qtGdAevFq0CAwEAAQ==
+
+---
+spring:
+   profiles: test
+   datasource:
+     driver-class-name: com.mysql.jdbc.Driver
+     username: jeff
+     url: jdbc:mysql://192.168.159.128:3306/db_user?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&createDatabaseIfNotExist=true
+     password: jeff
+     type:  com.alibaba.druid.pool.DruidDataSource
+     druid:
+       filters: config
+       maxActive: 50
+       initialSize: 10
+       maxWait: 60000
+       minIdle: 1
+       timeBetweenEvictionRunsMillis: 60000
+       minEvictableIdleTimeMillis: 300000
+       validationQuery: select 'x'
+       testWhileIdle: true
+       testOnBorrow: false
+       testOnReturn: false
+       connectionProperties: config.decrypt=false;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMBqy+oGF0DhV2jiHyilb4mowR4mgQL4FSE0+GvlstTqYanSnJXYHmAffYVNO7lsAq4KU0K3Xh9e6qtGdAevFq0CAwEAAQ==
