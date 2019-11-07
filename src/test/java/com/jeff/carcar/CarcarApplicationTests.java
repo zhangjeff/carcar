@@ -10,9 +10,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
-
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
+//
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringBootTest
 public class CarcarApplicationTests {
 //    @Autowired
 //    JdBookInfoService jdBookInfoService;
