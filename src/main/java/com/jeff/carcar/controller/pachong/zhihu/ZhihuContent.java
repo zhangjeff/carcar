@@ -71,9 +71,34 @@ public class ZhihuContent {
             JSONArray data = jsonObject.getJSONArray("data");
             System.out.println(data);
             for (int i = 0; i < data.size(); i++) {
-                JSONObject jsonObject1 = data.getJSONObject(i);
-                String banner = jsonObject1.getString("banner");
+                JSONObject item = data.getJSONObject(i);
+                String banner = item.getString("banner");
                 System.out.println("----------------banner---------------------" + banner);
+                String view_count = item.getString("view_count");
+                System.out.println("----------------view_count---------------------" + view_count);
+                String followers_count = item.getString("followers_count");
+                System.out.println("----------------followers_count---------------------" + followers_count);
+                String is_following = item.getString("is_following");
+                System.out.println("----------------is_following---------------------" + is_following);
+                String title = item.getString("title");
+                System.out.println("----------------title---------------------" + title);
+                String introduction = item.getString("introduction");
+                System.out.println("----------------introduction---------------------" + introduction);
+                String updated = item.getString("updated");
+                System.out.println("----------------updated---------------------" + updated);
+                String id = item.getString("id");
+                System.out.println("----------------id---------------------" + id);
+                JSONArray section_list = item.getJSONArray("section_list");
+                for (int j = 0; j < section_list.size(); j++) {
+                    JSONObject subItem = section_list.getJSONObject(j);
+                    String section_id = subItem.getString("section_id");
+                    System.out.println("----------------section_id---------------------" + section_id);
+                    String section_title = subItem.getString("section_title");
+                    System.out.println("----------------section_title---------------------" + section_title);
+                }
+
+
+
             }
         } while(!is_end);
 
