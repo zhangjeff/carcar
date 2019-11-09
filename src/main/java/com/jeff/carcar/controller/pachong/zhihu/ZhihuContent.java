@@ -3,6 +3,8 @@ package com.jeff.carcar.controller.pachong.zhihu;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.jeff.carcar.controller.pachong.MongoDBConnect;
+import com.mongodb.client.MongoCollection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,7 +14,9 @@ import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ZhihuContent {
@@ -59,6 +63,10 @@ public class ZhihuContent {
         String url = "https://www.zhihu.com/api/v4/news_specials/list?limit=10&offset=1";
 
         Boolean is_end = false;
+
+        List<org.bson.Document> documents = new ArrayList<org.bson.Document>();
+
+
         do {
             ResponseEntity<String> loginResponseEntity = restTemplate.getForEntity(url, String.class);
             System.out.println("-------------------------------------");
@@ -69,8 +77,10 @@ public class ZhihuContent {
             System.out.println("---next------" + url);
 
             JSONArray data = jsonObject.getJSONArray("data");
+
             System.out.println(data);
             for (int i = 0; i < data.size(); i++) {
+                List<org.bson.Document> subDocs = new ArrayList<org.bson.Document>();
                 JSONObject item = data.getJSONObject(i);
                 String banner = item.getString("banner");
                 System.out.println("----------------banner---------------------" + banner);
@@ -95,13 +105,26 @@ public class ZhihuContent {
                     System.out.println("----------------section_id---------------------" + section_id);
                     String section_title = subItem.getString("section_title");
                     System.out.println("----------------section_title---------------------" + section_title);
+                    org.bson.Document subDoc = new org.bson.Document("section_id", section_id).append("section_title", section_title);
+                    subDocs.add(subDoc);
                 }
-
-
+                org.bson.Document doc = new org.bson.Document("view_count", view_count)
+                        .append("followers_count", followers_count)
+                        .append("is_following", is_following)
+                        .append("title", title)
+                        .append("introduction", introduction)
+                        .append("banner", banner)
+                        .append("updated", updated)
+                        .append("id", id)
+                        .append("section_list", subDocs);
+                documents.add(doc);
 
             }
         } while(!is_end);
 
+        // mongoDB 存储
+        MongoCollection<org.bson.Document> collection = MongoDBConnect.getConnection("zhihu","special");
+        collection.insertMany(documents);
         System.out.println("---------------end----------------------");
 
     }
