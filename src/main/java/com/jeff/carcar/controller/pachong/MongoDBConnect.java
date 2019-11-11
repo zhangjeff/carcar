@@ -8,7 +8,7 @@ import org.bson.Document;
 public class MongoDBConnect {
 
     public static MongoCollection<Document> getConnection(String databaseName,String collectionName){
-        MongoClient mongoClient = new MongoClient("10.8.27.5", 27017);
+        MongoClient mongoClient = new MongoClient("45.117.101.64", 27017);
         // 连接到数据库
         MongoDatabase mongoDatabase = mongoClient.getDatabase(databaseName);
         MongoCollection<Document> collection = mongoDatabase.getCollection(collectionName);
