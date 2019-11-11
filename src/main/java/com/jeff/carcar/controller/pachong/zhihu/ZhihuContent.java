@@ -24,6 +24,8 @@ import java.util.*;
 public class ZhihuContent {
 
     private static final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static final SimpleDateFormat datef = new SimpleDateFormat("yyyy-MM-dd");
+
 
     public static void main(String[] args) {
         ZhihuContent zhihuContent = new ZhihuContent();
@@ -123,7 +125,9 @@ public class ZhihuContent {
                         .append("id", id)
                         .append("_id", id)
                         .append("section_list", subDocs)
+                        .append("create_day", datef.format(new Date()))
                         .append("create_date", df.format(new Date()));
+
                 documents.add(doc);
 
             }
