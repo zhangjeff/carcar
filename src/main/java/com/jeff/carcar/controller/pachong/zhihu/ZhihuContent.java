@@ -11,15 +11,19 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
+
+@Service
 public class ZhihuContent {
+
+    private static final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public static void main(String[] args) {
         ZhihuContent zhihuContent = new ZhihuContent();
@@ -108,6 +112,7 @@ public class ZhihuContent {
                     org.bson.Document subDoc = new org.bson.Document("section_id", section_id).append("section_title", section_title);
                     subDocs.add(subDoc);
                 }
+
                 org.bson.Document doc = new org.bson.Document("view_count", view_count)
                         .append("followers_count", followers_count)
                         .append("is_following", is_following)
@@ -116,7 +121,9 @@ public class ZhihuContent {
                         .append("banner", banner)
                         .append("updated", updated)
                         .append("id", id)
-                        .append("section_list", subDocs);
+                        .append("_id", id)
+                        .append("section_list", subDocs)
+                        .append("create_date", df.format(new Date()));
                 documents.add(doc);
 
             }
