@@ -48,15 +48,15 @@ public class JdList {
             Elements mlist = body.getElementsByTag("li");
             for (Element e : mlist) {
                 JdBookInfo jdBookInfo = new JdBookInfo();
-                System.out.println("-----------------begin-----------------------");
+//                System.out.println("-----------------begin-----------------------");
                 String  bookname = e.getElementsByClass("p-name").first().html();
-                System.out.println("bookname = " + bookname);
+//                System.out.println("bookname = " + bookname);
                 String seqNum = e.getElementsByClass("p-num").first().html();
-                System.out.println("seqNum = " + seqNum);
+//                System.out.println("seqNum = " + seqNum);
                 String authorname = e.getElementsByClass("p-detail").first().getElementsByTag("dl").first().getElementsByTag("dd").first().getElementsByTag("a").first().html();
-                System.out.println("authorname = " + authorname);
+//                System.out.println("authorname = " + authorname);
                 String publisher = e.getElementsByClass("p-detail").first().getElementsByTag("dl").get(1).getElementsByTag("dd").first().getElementsByTag("a").first().html();
-                System.out.println("publisher = " + publisher);
+//                System.out.println("publisher = " + publisher);
 
                 jdBookInfo.setBookname(bookname);
                 jdBookInfo.setAuthorname(authorname);
@@ -65,7 +65,7 @@ public class JdList {
                 jdBookInfo.setSeqNum(seqNum);
                 jdBookInfo.setCreateDate(new Date());
                 insertIntoDB(jdBookInfo);
-                System.out.println("-----------------end-----------------------");
+//                System.out.println("-----------------end-----------------------");
             }
         } catch (IOException e) {
             e.printStackTrace();

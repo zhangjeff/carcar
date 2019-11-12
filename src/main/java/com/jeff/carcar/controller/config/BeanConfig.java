@@ -16,13 +16,16 @@ public class BeanConfig {
     @Autowired
     private ZhihuContent zhihuContent;
 
-    @Bean
-    public void jdData(){
-        jdList.productJDBookInfo();
-    }
+//    @Bean
+//    public void jdData(){
+//        System.out.println("222222222222222222222222222222222222222222222222222222222");
+////        jdList.productJDBookInfo();
+//    }
 
-    @Bean
-    public void zhihuContentData(){
-        zhihuContent.getJsonContent();
-    }
+//    @Bean
+//    public void zhihuContentData(){
+//        System.out.println("3333333333333333333333333333333333333333333333333333333333");
+//
+////        zhihuContent.getJsonContent();
+//    }
 }

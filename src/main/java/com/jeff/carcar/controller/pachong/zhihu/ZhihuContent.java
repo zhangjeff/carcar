@@ -45,7 +45,7 @@ public class ZhihuContent {
             Elements items =  body.getElementsByClass("SpecialListPage-specialCard");
             for (Element e : items) {
                 String SpecialListCardbanner = e.getElementsByClass("SpecialListCard-banner").first().getElementsByTag("img").attr("src");
-                System.out.println("SpecialListCardbanner=" + SpecialListCardbanner);
+//                System.out.println("SpecialListCardbanner=" + SpecialListCardbanner);
             }
 
 //            System.out.println(items.html());
@@ -75,42 +75,42 @@ public class ZhihuContent {
 
         do {
             ResponseEntity<String> loginResponseEntity = restTemplate.getForEntity(url, String.class);
-            System.out.println("-------------------------------------");
+//            System.out.println("-------------------------------------");
             JSONObject jsonObject = JSON.parseObject(loginResponseEntity.getBody());
             JSONObject paging = jsonObject.getJSONObject("paging");
             is_end  = paging.getBoolean("is_end");
             url = paging.getString("next").replace("http","https");
-            System.out.println("---next------" + url);
+//            System.out.println("---next------" + url);
 
             JSONArray data = jsonObject.getJSONArray("data");
 
-            System.out.println(data);
+//            System.out.println(data);
             for (int i = 0; i < data.size(); i++) {
                 List<org.bson.Document> subDocs = new ArrayList<org.bson.Document>();
                 JSONObject item = data.getJSONObject(i);
                 String banner = item.getString("banner");
-                System.out.println("----------------banner---------------------" + banner);
+//                System.out.println("----------------banner---------------------" + banner);
                 String view_count = item.getString("view_count");
-                System.out.println("----------------view_count---------------------" + view_count);
+//                System.out.println("----------------view_count---------------------" + view_count);
                 String followers_count = item.getString("followers_count");
-                System.out.println("----------------followers_count---------------------" + followers_count);
+//                System.out.println("----------------followers_count---------------------" + followers_count);
                 String is_following = item.getString("is_following");
-                System.out.println("----------------is_following---------------------" + is_following);
+//                System.out.println("----------------is_following---------------------" + is_following);
                 String title = item.getString("title");
-                System.out.println("----------------title---------------------" + title);
+//                System.out.println("----------------title---------------------" + title);
                 String introduction = item.getString("introduction");
-                System.out.println("----------------introduction---------------------" + introduction);
+//                System.out.println("----------------introduction---------------------" + introduction);
                 String updated = item.getString("updated");
-                System.out.println("----------------updated---------------------" + updated);
+//                System.out.println("----------------updated---------------------" + updated);
                 String id = item.getString("id");
-                System.out.println("----------------id---------------------" + id);
+//                System.out.println("----------------id---------------------" + id);
                 JSONArray section_list = item.getJSONArray("section_list");
                 for (int j = 0; j < section_list.size(); j++) {
                     JSONObject subItem = section_list.getJSONObject(j);
                     String section_id = subItem.getString("section_id");
-                    System.out.println("----------------section_id---------------------" + section_id);
+//                    System.out.println("----------------section_id---------------------" + section_id);
                     String section_title = subItem.getString("section_title");
-                    System.out.println("----------------section_title---------------------" + section_title);
+//                    System.out.println("----------------section_title---------------------" + section_title);
                     org.bson.Document subDoc = new org.bson.Document("section_id", section_id).append("section_title", section_title);
                     subDocs.add(subDoc);
                 }
@@ -136,7 +136,7 @@ public class ZhihuContent {
         // mongoDB 存储
         MongoCollection<org.bson.Document> collection = MongoDBConnect.getConnection("zhihu","special");
         collection.insertMany(documents);
-        System.out.println("---------------end----------------------");
+//        System.out.println("---------------end----------------------");
 
     }
 }
