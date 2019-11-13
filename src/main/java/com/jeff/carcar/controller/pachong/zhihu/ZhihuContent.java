@@ -124,7 +124,7 @@ public class ZhihuContent {
                         .append("banner", banner)
                         .append("updated", updated)
                         .append("id", id)
-                        .append("_id", id)
+//                        .append("_id", id)
                         .append("section_list", subDocs)
                         .append("create_day", datef.format(new Date()))
                         .append("create_date", df.format(new Date()));
