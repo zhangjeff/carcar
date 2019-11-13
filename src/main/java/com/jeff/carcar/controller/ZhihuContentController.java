@@ -1,4 +1,4 @@
-package com.jeff.carcar.controller.pachong.zhihu;
+package com.jeff.carcar.controller;
 
 import com.jeff.carcar.controller.pachong.MongoDBConnect;
 import com.mongodb.client.FindIterable;
@@ -8,18 +8,16 @@ import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping(value = "/zhihu")
 public class ZhihuContentController {
 
+    @ResponseBody
     @RequestMapping(value="/zhihuContent", method = RequestMethod.GET)
     public List<Document> getzhihuContent(){
         MongoCollection<Document> collection = MongoDBConnect.getConnection("zhihu","special");
