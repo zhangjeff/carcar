@@ -25,20 +25,21 @@ public class JdList {
     JdBookInfoService jdBookInfoService;
 
     public  void productJDBookInfo() {
-        TimerTask timertask = new TimerTask() {
-            @Override
-            public void run() {
-                for (int i = 1; i< 6; i++) {
-                    String url = "https://book.jd.com/booktop/0-0-0.html?category=1713-0-0-0-10002-"+i+"#comfort";
-                    produceData(url);
-                }
-            }
-        };
-
-        Timer timer = new Timer();
-        long delay = 0;
-        long iintevalPeriod = 1*1000*60*60*24;
-        timer.scheduleAtFixedRate(timertask,delay,iintevalPeriod);
+//        TimerTask timertask = new TimerTask() {
+//            @Override
+//            public void run() {
+//
+//            }
+//        };
+//
+//        Timer timer = new Timer();
+//        long delay = 0;
+//        long iintevalPeriod = 1*1000*60*60*24;
+//        timer.scheduleAtFixedRate(timertask,delay,iintevalPeriod);
+        for (int i = 1; i< 6; i++) {
+            String url = "https://book.jd.com/booktop/0-0-0.html?category=1713-0-0-0-10002-"+i+"#comfort";
+            produceData(url);
+        }
     }
     private  void produceData(String url){
         try {

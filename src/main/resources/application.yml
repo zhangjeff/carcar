@@ -28,10 +28,12 @@ logging:
 server:
   port: 8082
   session:
-    timeout: 1800
+#    timeout: 1800
   connection-timeout:  60000
-  display-name: Boot Application
-  context-path: /carcar
+#  display-name: Boot Application
+#  context-path: /carcar
+  servlet:
+    context-path: /carcar
 
 ---
 spring:
@@ -54,3 +56,27 @@ spring:
        testWhileIdle: true
        testOnBorrow: false
        testOnReturn: false
+
+
+---
+spring:
+  profiles: test
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: wwy
+    url: jdbc:mysql://45.117.101.64:3306/db_draw?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&createDatabaseIfNotExist=true&useSSL=true
+    password: wwy123
+    type:  com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filters: config
+      maxActive: 50
+      initialSize: 10
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      connectionProperties: config.decrypt=false;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMBqy+oGF0DhV2jiHyilb4mowR4mgQL4FSE0+GvlstTqYanSnJXYHmAffYVNO7lsAq4KU0K3Xh9e6qtGdAevFq0CAwEAAQ==

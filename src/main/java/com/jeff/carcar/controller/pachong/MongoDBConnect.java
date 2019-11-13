@@ -12,6 +12,7 @@ public class MongoDBConnect {
         // 连接到数据库
         MongoDatabase mongoDatabase = mongoClient.getDatabase(databaseName);
         MongoCollection<Document> collection = mongoDatabase.getCollection(collectionName);
+
         return collection;
     }
 

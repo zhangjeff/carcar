@@ -58,6 +58,7 @@ public class ZhihuContent {
     }
 
     public void getJsonContent(){
+        System.out.println("----------------------start- getJsonContent---------------");
         int timeout = 3000;
         SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
         requestFactory.setConnectTimeout(timeout);// 设置超时
