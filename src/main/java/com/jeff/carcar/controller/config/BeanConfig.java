@@ -40,7 +40,7 @@ public class BeanConfig implements ApplicationListener<ContextRefreshedEvent> {
         //root application context 没有parent，他就是老大.
         if(event.getApplicationContext().getParent() == null){
             System.out.println("--------------------begin--------------");
-            jdList.productJDBookInfo();
+//            jdList.productJDBookInfo();
             System.out.println("--------------------end productJDBookInfo --------------");
 
             zhihuContent.getJsonContent();
