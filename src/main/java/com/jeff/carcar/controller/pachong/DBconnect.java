@@ -9,8 +9,8 @@ public  class DBconnect {
 
         Connection con = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-            con = DriverManager.getConnection("jdbc:mysql://45.117.101.64:3306/db_draw", "wwy", "wwy123");
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            con = DriverManager.getConnection("jdbc:mysql://10.206.22.3:3306/reptile?characterEncoding=UTF-8", "root", "root");
             return  con;
 //            Statement stmt = con.createStatement();
 //            String sql = "INSERT INTO signup_info(username, tel) VALUES ('"+ username +"','"+ tel +"')";
